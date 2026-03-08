@@ -5,7 +5,7 @@ function login() {
   let adminUser = "admin";
   let adminPass = "admin123";
 
-  console.log("hello");
+  // console.log("hello");
   if (username === adminUser && password === adminPass) {
     window.location.href = "main.html";
   } else {

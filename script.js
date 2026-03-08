@@ -2,23 +2,26 @@ const container = document.getElementById("issuesContainer");
 const count = document.getElementById("issueCount");
 const loader = document.getElementById("loader");
 
-const loadIssues = () => {
+let allIssues = [];
+
+function loadIssues() {
   loader.classList.remove("hidden");
 
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
-    .then((res) => res.json()) //promise of json data
+    .then((res) => res.json())
+    // .then((data) => console.log(data));
     .then((data) => {
       allIssues = data.data;
+
       displayIssues(allIssues);
+
       loader.classList.add("hidden");
     });
-};
+}
 
 loadIssues();
 
-// display
-
-const displayIssues = (issues) => {
+function displayIssues(issues) {
   container.innerHTML = "";
 
   count.innerText = `${issues.length} Issues`;
@@ -35,40 +38,52 @@ const displayIssues = (issues) => {
     card.style.borderColor = border;
 
     card.innerHTML = `
-        <div class="flex justify-between">
-    
-         <span class="${icon} text-lg">●</span>
-         <span class="text-xs bg-gray-200 px-2 py-1 rounded">
-         ${issue.priority}
-         </span>
-         </div>
 
-         <h3 class="font-bold mt-2>${issue.title} </h3>
+<div class="flex justify-between">
 
-         <p class="text-sm text-gray-500">${issue.description} </p>
+<span class="${icon} text-xl">●</span>
 
-         <div class = " flex flex-wrap gap-1 mt-2"> ${issue.labels
-           .map(
-             (
-               label,
-             ) => `<span class= "text-xs bg-yellow-200 px-2 py-1 rounded"> 
-                ${label} </span>`,
-           )
-           .join("")}
+<span class="text-xs bg-gray-200 px-2 py-1 rounded">
+${issue.priority}
+</span>
 
-            </div>
+</div>
 
-            <P class="text-xs text-gray-400 mt-2"> #by ${issue.author} </p>
+<h3 class="font-bold mt-2">
+${issue.title}
+</h3>
 
-            <P class="text-xs text-gray-400 mt-2"> ${issue.createdAt} </p>
+<p class="text-sm text-gray-500">
+${issue.description}
+</p>
 
-        `;
+<div class="flex flex-wrap gap-1 mt-2">
+
+${issue.labels
+  .map(
+    (label) =>
+      `<span class="text-xs bg-yellow-200 px-2 py-1 rounded">
+${label}
+</span>`,
+  )
+  .join("")}
+
+</div>
+
+<p class="text-xs text-gray-400 mt-2">
+by ${issue.author}
+</p>
+<p class="text-xs text-gray-400 mt-2">
+ ${issue.createdAt.split("T")[0]}
+</p>
+
+`;
 
     card.onclick = () => loadSingleIssue(issue.id);
 
     container.appendChild(card);
   });
-};
+}
 
 function setActive(btn) {
   document.querySelectorAll(".tab").forEach((b) => {
@@ -147,6 +162,10 @@ ${label}
 
 `;
     });
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.add("hidden");
 }
 
 document.getElementById("searchBtn").onclick = searchIssues;

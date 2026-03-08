@@ -46,19 +46,22 @@
   <body class="bg-gray-100">
     <!-- navbar -->
 
-    <nav class="bg-white shadow p-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold">GitHub Issues Tracker</h1>
+    <nav class="bg-white shadow p-6 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <img class="w-8" src="./images/github-logo.png" alt="" />
+        <h1 class="text-xl font-bold">GitHub Issues Tracker</h1>
+      </div>
 
       <div class="flex gap-2">
         <input
           id="searchInput"
-          class="border px-3 py-1 rounded"
+          class="border border-gray-200 px-3 py-1 rounded"
           placeholder="Search issues"
         />
 
         <button
           id="searchBtn"
-          class="bg-purple-600 text-white px-4 py-1 rounded"
+          class="bg-[#4A00FF] text-white px-4 py-1 rounded"
         >
           Search
         </button>
@@ -68,10 +71,10 @@
     <div class="max-w-7xl mx-auto p-6">
       <!-- btn -->
 
-      <div class="flex gap-3 mb-4">
+      <div class="bg-white flex gap-3 mb-8 p-3 h-15 rounded">
         <button
           id="allBtn"
-          class="tab bg-purple-600 text-white px-4 py-1 rounded"
+          class="tab bg-purple-600 text-white px-6 py-1 rounded"
         >
           All
         </button>
@@ -85,13 +88,37 @@
         </button>
       </div>
 
-      <h2 id="issueCount" class="text-lg font-semibold mb-4">0 Issues</h2>
+      <!-- ************* -->
+
+      <div
+        class="flex bg-white mb-8 p-3 h-19 rounded justify-between items-center"
+      >
+        <div class="flex gap-2 justify-between items-center">
+          <img class="w-8 h-8" src="./images/Aperture.png" alt="" />
+          <div>
+            <h2 id="issueCount" class="text-xl font-semibold mb-2">0 Issues</h2>
+            <p class="text-[#64748B] text-sm">
+              Track and manage your project issues
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-5">
+          <p class="text-lg">
+            <span class="${icon} text-green-600 text-2xl gap-3">●</span>Open
+          </p>
+          <p class="text-lg">
+            <span class="${icon} text-purple-600 text-2xl gap-3">●</span>Closed
+          </p>
+        </div>
+      </div>
+
+      <!-- ************** -->
 
       <div id="loader" class="text-center hidden">Loading...</div>
 
       <div
         id="issuesContainer"
-        class="grid md:grid-cols-2 lg:grid-cols-4 gap-4"
+        class="bg-white grid md:grid-cols-2 lg:grid-cols-4 gap-4"
       ></div>
     </div>
 
@@ -113,7 +140,7 @@
       </div>
     </div>
 
-    <!-- <script src="./scriptfull.js"></script> -->
-    <script src="./script01.js"></script>
+    <!-- js -->
+    <script src="./script.js"></script>
   </body>
 </html>
