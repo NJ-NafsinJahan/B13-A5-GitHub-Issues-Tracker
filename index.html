@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Title & logo -->
-    <title>GitHub Issues Tracker</title>
+    <!-- Title & Logo -->
+    <title>Login page</title>
     <link
       rel="shortcut icon"
       href="./images/github-logo.png"
@@ -17,15 +17,6 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
       rel="stylesheet"
-    />
-
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
 
     <!-- Tailwind + DaisyUI -->
@@ -42,78 +33,90 @@
       }
     </style>
   </head>
+  <body class="bg-[#F8FAFC] flex items-center justify-center h-screen">
+    <div class="bg-[#FFFFFF] p-8 rounded-lg shadow-lg w-[520px]">
+      <!-- Logo -->
+      <div class="logo">
+        <div class="flex justify-center mb-4">
+          <img src="./images/github-logo.png" alt="" />
+        </div>
 
-  <body class="bg-gray-100">
-    <!-- navbar -->
+        <h1 class="text-2xl font-semibold text-center text-[#1F2937]">
+          GitHub Issues Tracker
+        </h1>
+        <p class="text-[#64748B] text-center mb-6">
+          Sign in to manage your issues
+        </p>
+      </div>
 
-    <nav class="bg-white shadow p-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold">GitHub Issues Tracker</h1>
+      <!-- Username -->
+      <div class="username">
+        <label class="label">
+          <span class="text-[#1F2937] font-medium text-[16px]">Username</span>
+        </label>
 
-      <div class="flex gap-2">
         <input
-          id="searchInput"
-          class="border px-3 py-1 rounded"
-          placeholder="Search issues"
+          id="username"
+          type="text"
+          placeholder="Enter Username"
+          class="border-[#dde1e6] w-full border p-3 rounded mb-3"
         />
-
-        <button
-          id="searchBtn"
-          class="bg-purple-600 text-white px-4 py-1 rounded"
-        >
-          Search
-        </button>
-      </div>
-    </nav>
-
-    <div class="max-w-7xl mx-auto p-6">
-      <!-- btn -->
-
-      <div class="flex gap-3 mb-4">
-        <button
-          id="allBtn"
-          class="tab bg-purple-600 text-white px-4 py-1 rounded"
-        >
-          All
-        </button>
-
-        <button id="openBtn" class="tab bg-gray-200 px-4 py-1 rounded">
-          Open
-        </button>
-
-        <button id="closedBtn" class="tab bg-gray-200 px-4 py-1 rounded">
-          Closed
-        </button>
+        <p class="text-[#4A00FF] text-[14px] mb-4">Default: admin</p>
       </div>
 
-      <h2 id="issueCount" class="text-lg font-semibold mb-4">0 Issues</h2>
+      <!-- Password -->
 
-      <div id="loader" class="text-center hidden">Loading...</div>
+      <div class="password">
+        <label class="label">
+          <span class="text-[#1F2937] font-medium text-[16px]">Password</span>
+        </label>
 
-      <div
-        id="issuesContainer"
-        class="grid md:grid-cols-2 lg:grid-cols-4 gap-4"
-      ></div>
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter Password"
+          class="border-[#dde1e6] w-full border p-3 rounded mb-3"
+        />
+        <p class="text-[#4A00FF] text-[14px] mb-4">Default: admin123</p>
+      </div>
+
+      <!-- Sign in button -->
+      <button
+        onclick="login()"
+        class="w-full bg-[#4A00FF] text-white font-semibold text-[16px] p-2 rounded hover:bg-blue-600 mb-3"
+      >
+        Sign In
+      </button>
+
+      <!-- Credential -->
+      <div class="flex justify-center mb-4">
+        <!-- <div>or</div> -->
+        <div>
+          <p
+            class="text-[#64748B] grid justify-center font-medium text-[16px] mb-3"
+          >
+            Demo Credentials:
+          </p>
+          <div class="bg-[#F8FAFC] w-[456px] grid justify-center">
+            <p>
+              <span class="font-semibold text-[16] text-[#1F2937]"
+                >Username:</span
+              >
+              admin
+            </p>
+            <p>
+              <span class="font-semibold text-[16] text-[#1F2937]"
+                >Password:</span
+              >
+              admin123
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ***************** -->
+
+      <script src="./login.js"></script>
     </div>
-
-    <!-- modal -->
-
-    <div
-      id="modal"
-      class="fixed inset-0 bg-black/40 hidden items-center justify-center"
-    >
-      <div class="bg-white p-6 rounded w-96">
-        <div id="modalContent"></div>
-
-        <button
-          onclick="closeModal()"
-          class="mt-4 bg-purple-600 text-white px-4 py-1 rounded"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-
-    <!-- <script src="./scriptfull.js"></script> -->
-    <script src="./script01.js"></script>
   </body>
 </html>
