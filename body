@@ -1,0 +1,86 @@
+<header>
+  <!-- Navbar -->
+  <div class="navbar bg-base-100 shadow-sm">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl">
+        <img class="w-9" src="./images/github-logo.png" alt="" />GitHub Issues
+        Tracker</a
+      >
+    </div>
+
+    <div class="flex gap-2">
+      <input
+        id="searchInput"
+        class="border border-[#c2c5ca] px-3 py-1 rounded"
+        placeholder="Search issues..."
+      />
+
+      <button id="searchBtn" class="bg-purple-600 text-white px-4 py-1 rounded">
+        + New Issues
+      </button>
+    </div>
+  </div>
+</header>
+<!-- body -->
+<section>
+  <div class="max-w-5xl mx-auto p-6">
+    <!-- Buttons -->
+    <div
+      class="bg-yellow-50 flex items-center pl-6 gap-3 mb-4 h-[80px] rounded"
+    >
+      <!-- all -->
+      <button
+        id="allBtn"
+        class="tab bg-purple-600 text-white px-4 py-1 rounded w-[100px] h-[30px]"
+      >
+        All
+      </button>
+
+      <!-- open -->
+      <button
+        id="openBtn"
+        class="tab border border-[#c2c5ca] px-4 py-1 rounded w-[100px] h-[30px]"
+      >
+        Open
+      </button>
+
+      <!-- closed  -->
+      <button
+        id="closed"
+        class="tab border border-[#c2c5ca] px-4 py-1 rounded w-[100px] h-[30px]"
+      >
+        Closed
+      </button>
+    </div>
+    <!--**** issue count*** -->
+    <div>
+      <h2 id="issueCount" class="text-lg font-semibold mb-4">0 Issues</h2>
+    </div>
+
+    <div id="loader" class="text-center hidden">Loading...</div>
+
+    <!-- Cards -->
+    <div id="issuesContainer" class="grid md:grid-cols-2 lg:grid-cols-4"></div>
+  </div>
+</section>
+<!-- for modal -->
+<div
+  id="modal"
+  class="fixed inset-0 bg-black/40 hidden items-center justify-center"
+>
+  <div class="bg-white p-6 rounded w-96">
+    <div id="modalContent"></div>
+
+    <button
+      onclick="closeModal()"
+      class="mt-4 bg-purple-600 text-white px-4 py-1 rounded"
+    >
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- *********** javaScript ********* -->
+<!-- <script src="./script.js"></script> -->
+
+<script src="./script01.js"></script>
