@@ -1,0 +1,13 @@
+function login() {
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+
+  let adminUser = "admin";
+  let adminPass = "admin123";
+
+  if (username === adminUser && password === adminPass) {
+    window.location.href = "index.html";
+  } else {
+    alert("Invalid Username or Password");
+  }
+}
