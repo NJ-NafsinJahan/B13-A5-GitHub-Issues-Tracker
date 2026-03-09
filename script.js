@@ -119,8 +119,10 @@ document.getElementById("closedBtn").onclick = function () {
 };
 
 function loadSingleIssue(id) {
+  // fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
   fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
     .then((res) => res.json())
+    // .then((data) => console.log(data))
 
     .then((data) => {
       const issue = data.data;
@@ -136,24 +138,38 @@ function loadSingleIssue(id) {
 ${issue.title}
 </h2>
 
+<div class="bg-slate-100 flex justify-center items-center gap-2 text-sm text-gray-500">
+
+<p class="">
+status: ${issue.status}
+</p>
+
+<p class="text-lg"> ~ </p>
+
+<p class="">
+Open By: ${issue.assignee}
+</p>
+
+</div>
+
 <p class="text-gray-500 mt-2 text-sm">
 ${issue.description}
 </p>
 
-<div class=" bg-slate-100 text-sm rounded px-1">
-<p class="mt-2 ">
-Priority: ${issue.priority}
-</p>
+<div class=" bg-slate-100 text-sm rounded px-1 py-2">
+
+<button class="border border-gray-400 px-1 bg-yellow-100 rounded">
+${issue.priority}
+</button>
 
 <p class="">
-By ${issue.author}
+Assignee: ${issue.assignee}
 </p>
 
-<p class="text-xs text-gray-400 mt-2">
+<p class="text-xs text-gray-600 mt-2">
  Created At: ${issue.createdAt.split("T")[0]}
 </p
 </di>
-
 
 
 <div class="flex flex-wrap gap-1 mt-2">
