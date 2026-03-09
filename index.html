@@ -33,12 +33,14 @@
       }
     </style>
   </head>
-  <body class="bg-[#F8FAFC] flex items-center justify-center h-screen">
-    <div class="bg-[#FFFFFF] p-8 rounded-lg shadow-lg w-[520px]">
+  <body class="bg-[#F8FAFC] flex items-center justify-center h-screen p-4">
+    <div
+      class="bg-[#FFFFFF] p-6 md:p-8 rounded-lg shadow-lg w-11/12 max-w-[520px]"
+    >
       <!-- Logo -->
-      <div class="logo">
-        <div class="flex justify-center mb-4">
-          <img src="./images/github-logo.png" alt="" />
+      <div class="logo mx-2">
+        <div class="flex justify-center m-4">
+          <img class="w-20 h-20" src="./images/github-logo.png" alt="" />
         </div>
 
         <h1 class="text-2xl font-semibold text-center text-[#1F2937]">
@@ -87,6 +89,12 @@
       >
         Sign In
       </button>
+
+      <div class="flex justify-center items-center p-1 gap-4 my-4">
+        <div class="flex-grow border-t border-gray-600"></div>
+        <p class="font-medium text-lg text-gray-600">Or</p>
+        <div class="flex-grow border-t border-gray-600"></div>
+      </div>
 
       <!-- Credential -->
       <div class="flex justify-center mb-4">
