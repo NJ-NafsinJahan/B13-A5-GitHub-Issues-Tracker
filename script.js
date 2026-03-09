@@ -69,6 +69,7 @@ ${label}
   .join("")}
 
 </div>
+<hr class="text-gray-200 mt-3">
 
 <p class="text-xs text-gray-400 mt-2">
 by ${issue.author}
@@ -135,17 +136,25 @@ function loadSingleIssue(id) {
 ${issue.title}
 </h2>
 
-<p class="text-gray-600 mt-2">
+<p class="text-gray-500 mt-2 text-sm">
 ${issue.description}
 </p>
 
-<p class="mt-2">
+<div class=" bg-slate-100 text-sm rounded px-1">
+<p class="mt-2 ">
 Priority: ${issue.priority}
 </p>
 
-<p>
-Author: ${issue.author}
+<p class="">
+By ${issue.author}
 </p>
+
+<p class="text-xs text-gray-400 mt-2">
+ Created At: ${issue.createdAt.split("T")[0]}
+</p
+</di>
+
+
 
 <div class="flex flex-wrap gap-1 mt-2">
 
